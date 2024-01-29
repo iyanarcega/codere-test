@@ -1,0 +1,7 @@
+{
+  "name": "tv-app",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

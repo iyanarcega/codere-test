@@ -1,0 +1,93 @@
+<ion-header *ngIf="item" [translucent]="true">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-back-button default-href="/"></ion-back-button>
+    </ion-buttons>
+    <ion-title>{{ item.name }}</ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="item" [fullscreen]="true">
+  <ion-col>
+    <ng-container *ngIf="item.image; else noImage">
+      <ion-img [src]="item.image.medium" alt="show picture"></ion-img>
+    </ng-container>
+    <ng-template #noImage>
+      <!-- Fallback image -->
+      <ion-img
+        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAANIAAAEnCAYAAADcsR1cAAAAAXNSR0IArs4c6QAAEAtJREFUeF7tnGWvG8kWReuGmZlJiaL8/3+Rr2FmZuanbamsynkN1e3tqzvOamk0mrn2sb16r2J76eLFi38SFwQgMBOBJUSaiR9PhsCEACIRBAgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCSASIlIIBIZAACBgKIZIBICQggEhmAgIEAIhkgUgICiEQGIGAggEgGiJSAACKRAQgYCCCS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AJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQQCQDREpAAJHIAAQMBBDJAJESEEAkMgABAwFEMkCkBAQQiQxAwEAAkQwQKQEBRCIDEDAQ+B/otw0AoPFX1gAAAABJRU5ErkJggg=="
+        alt="show picture"
+      ></ion-img>
+    </ng-template>
+
+    <div class="title">
+      <ion-text class="heading">{{ item.name }}</ion-text>
+      <ion-badge slot="start">{{ item.rating.average }}</ion-badge>
+    </div>
+
+    <div class="status">
+      <ion-text color="medium">{{ item.status }}</ion-text>
+    </div>
+
+    <div class="genres">
+      <ion-chip *ngFor="let genre of item.genres" color="primary">
+        {{ genre }}
+      </ion-chip>
+    </div>
+  </ion-col>
+
+  <ion-accordion-group [multiple]="true" [value]="['first', 'second']">
+    <ion-accordion value="first">
+      <ion-item slot="header">
+        <ion-label class="header">Summary</ion-label>
+      </ion-item>
+      <div class="summary" slot="content">
+        <ion-text [innerHTML]="item.summary"></ion-text>
+      </div>
+    </ion-accordion>
+    <ion-accordion value="second">
+      <ion-item slot="header">
+        <ion-label class="header">Information</ion-label>
+      </ion-item>
+      <div slot="content">
+        <ion-item>
+          <ion-label>
+            <h2>Language</h2>
+            <p>{{ item.language|| "-" }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h2>Country</h2>
+            <p>{{ item.network?.country?.name || "-" }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h2>Network</h2>
+            <p>{{ item.network?.name || "-" }}</p>
+          </ion-label>
+        </ion-item>
+        <ion-item>
+          <ion-label>
+            <h2>Average runtime</h2>
+            <p>
+              {{ item.averageRuntime ? item.averageRuntime + " mins" : "-" }}
+            </p>
+          </ion-label>
+        </ion-item>
+      </div>
+    </ion-accordion>
+  </ion-accordion-group>
+
+  <ion-fab slot="fixed" vertical="bottom" horizontal="end">
+    <ion-fab-button>
+      <ion-icon name="chevron-up-circle"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button [href]="item.url">
+        <ion-icon name="globe"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+</ion-content>

@@ -1,0 +1,19 @@
+<ion-content [fullscreen]="true">
+  <ion-toolbar>
+    <ion-searchbar
+      [debounce]="400"
+      (ionInput)="handleInput($event)"
+      placeholder="Search for a TV show..."
+    ></ion-searchbar>
+  </ion-toolbar>
+
+  <ion-list *ngIf="searchResults.length">
+    <app-show-item
+      button
+      detail
+      *ngFor="let item of searchResults"
+      [item]="item.show"
+    >
+    </app-show-item>
+  </ion-list>
+</ion-content>

@@ -1,0 +1,40 @@
+.genre-section {
+  padding: 0 1rem;
+  margin-bottom: 1rem;
+
+  .swiper {
+    height: 100%;
+    overflow-y: hidden;
+  }
+
+  .title {
+    display: block;
+    font-size: 1.5rem;
+    font-weight: 500;
+  }
+
+  .subtitle {
+    display: block;
+    font-size: 0.8rem;
+  }
+
+  ion-card {
+    border-radius: 15px;
+
+    ion-card-subtitle {
+      display: flex;
+      gap: 0.5rem;
+    }
+
+    ion-card-content {
+      display: flex;
+      flex-direction: column;
+    }
+
+    .nowrap {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+  }
+}

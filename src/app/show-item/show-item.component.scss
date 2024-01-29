@@ -1,0 +1,9 @@
+ion-img {
+  height: 4rem;
+  margin: 0.2rem 0;
+  margin-right: 1rem;
+
+  &::part(image) {
+    border-radius: 5px;
+  }
+}
